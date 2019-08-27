@@ -22,6 +22,10 @@
 
    [자율 출퇴근](https://github.com/milooy/remote-or-flexible-work-company-in-korea)
 
+   [본문/명령문](https://meetup.toast.com/posts/106)
+
+   [커밋 낱말 사전](https://blog.ull.im/engineering/2019/03/10/logs-on-git.html)
+
    
 
    
