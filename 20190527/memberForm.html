@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>회원 정보를 입력하십시오.</h1>
+<hr>
+	<li>
+		<input id=name name=name type=text required maxlength=4
+				placeholder="이름을 입력하세요.">
+	<li>
+		<input id=phone name=phone type=tel 
+		        placeholder="전화번호를 입력하세요." 
+		        pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}">
+	</li>
+	<li>
+		<input id=email name=email type=email 
+		placeholder="계정을 입력하세요." required>
+	</li>
+	<li>
+		<input type="password" name="stpwd"
+		placeholder="패스워드을 입력하세요."><br>
+	</li>
+
+<input type ="submit" value="등록">
+<input type ="reset" value="재작성">
+</body>
+</html>

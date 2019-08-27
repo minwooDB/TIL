@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function initiate(){
+	 var elem=document.getElementById('canvas');
+	 canvas=elem.getContext('2d');
+	  
+canvas.beginPath();
+	  canvas.arc(300,200,50,0,Math.PI*2, false);
+	  canvas.strokeStyle = "black";
+	  canvas.stroke();
+	  canvas.fillStyle = "yellow";
+	  canvas.fill();
+	  
+canvas.beginPath();
+	  canvas.arc(300,200,20,0,Math.PI, false);
+	  canvas.strokeStyle = "red";
+	  canvas.stroke();
+	  canvas.fillStyle = "red";
+	  canvas.fill();
+
+canvas.beginPath();
+	  canvas.arc(320,185,10,0,Math.PI,true);
+	  canvas.strokeStyle = "black";
+	  canvas.stroke();
+
+canvas.beginPath();
+	  canvas.arc(280,185,10,0,Math.PI,true);
+	  canvas.strokeStyle = "black";
+	  canvas.stroke();
+
+canvas.beginPath();
+	  canvas.arc(600,200,50,0,Math.PI*2, false);
+	  canvas.strokeStyle = "black";
+	  canvas.stroke();
+	  canvas.fillStyle = "yellow";
+	  canvas.fill();
+	  
+canvas.beginPath();
+	  canvas.arc(600,220,15,0,Math.PI, false);
+	  canvas.strokeStyle = "blue";
+	  canvas.stroke();
+	  canvas.fillStyle = "blue";
+	  canvas.fill();
+
+canvas.beginPath();
+	  canvas.arc(580,185,10,0,120,false);
+	  canvas.strokeStyle = "black";
+	  canvas.stroke();
+
+canvas.beginPath();
+	  canvas.arc(620,185,10,150,220,true);
+	  canvas.strokeStyle = "black";
+	  canvas.stroke();
+	  
+canvas.beginPath();
+	  canvas.lineTo(590, 210);
+	  canvas.fill();
+
+}
+window.addEventListener("load", initiate, false);
+</script>
+</head>
+<body>
+<section id="canvasbox">
+    <canvas id="canvas" width="1200" height="600"  style=" background-color:pink; border:1px solid red;">
+      Your browser doesn't support the canvas element
+    </canvas>
+  </section>
+</body>
+</html>

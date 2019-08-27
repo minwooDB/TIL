@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>과제3</h1>
+<script>
+var ary = [10,5,7,21,4,8,18];
+var ary2 = ary.sort(function(a,b){return a-b;});
+var max = Math.max.apply(null,ary);
+var min = Math.min.apply(null,ary);
+document.write("<h1>"+ "모든 원소의 합:" +ary2+ "</h1>");
+document.write("<ul><li>"+"최댓값:"+max+"</li><li>"
+		+"최소값:"+min+"</li></ul>");
+</script>
+</body>
+</html>

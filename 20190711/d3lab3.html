@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="d3.v3.min.js">
+	
+</script>
+</head>
+<body>
+
+	<svg width="3000" height="3000">
+<g style="fill:yellow">
+				<circle cx="1050" cy="300" " r="100"></circle>
+				<circle cx="800" cy="300" r="100"></circle>
+				<circle cx="550" cy="300" r="100"></circle>
+				<circle cx="300" cy="300" r="100"></circle>
+</g>
+<g style="fill:red" >
+<circle class="a" cx="1050" cy="330" r="20"></circle>
+<circle class="a" cx="800" cy="330" r="20"></circle>
+<circle class="a" cx="550" cy="330" r="20"></circle>
+<circle class="a"  cx="300" cy="330" r="20"></circle>
+</g>
+<path d=" m50,50 l100,50 75,75z" />
+<path d=" m450,50 l500,50 475,75z" />
+<path d=" m450,50 l500,50 475,75z" fill="green" />
+<path d=" m1000,45 l1050,45 1025,95z" fill="green" />
+<path d="m1050,300 c1050,200 1350,200 1350,300" />
+</svg>
+	<script>
+		setInterval(function() {
+			var color = [ 'red', 'blue', 'orange', 'green' ]
+			var result = Math.floor(Math.random() * 3)
+			console.log(color[result])
+		d3.select("svg").selectAll(".a").attr("fill", color[result]);
+		}, 500);
+		d3.select("svg").selectAll(".a").transition().duration(2000).attr("cy", 500);
+	</script>
+</body>
+</html>

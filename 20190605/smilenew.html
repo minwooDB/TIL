@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<button onclick ="save()">저장하기</button>
+<button onclick ="initialize()">삭제하기</button>
+<button onclick ="read()">읽어오기</button>
+<script>
+function initiate(){
+	 var elem=document.getElementById('canvas');
+	 canvas=elem.getContext('2d');
+	  
+canvas.beginPath();
+	  canvas.arc(300,200,50,0,Math.PI*2, false);
+	  canvas.strokeStyle = "black";
+	  canvas.stroke();
+	  canvas.fillStyle = "yellow";
+	  canvas.fill();
+	  
+canvas.beginPath();
+	  canvas.arc(300,200,20,0,Math.PI, false);
+	  canvas.strokeStyle = "red";
+	  canvas.stroke();
+	  canvas.fillStyle = "red";
+	  canvas.fill();
+
+canvas.beginPath();
+	  canvas.arc(320,185,10,0,Math.PI,true);
+	  canvas.strokeStyle = "black";
+	  canvas.stroke();
+
+canvas.beginPath();
+	  canvas.arc(280,185,10,0,Math.PI,true);
+	  canvas.strokeStyle = "black";
+	  canvas.stroke();
+
+canvas.beginPath();
+	  canvas.arc(600,200,50,0,Math.PI*2, false);
+	  
+
+}
+window.addEventListener("load", initiate, false);
+
+</script>
+</head>
+<body>
+<script>
+function save() {	
+	var canvas = document.getElementById('canvas');
+	alert(canvas.toDataURL()); 
+    localStorage.setItem("canvas", canvas.toDataURL());    
+}
+function initialize()
+{
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.beginPath();
+}
+function read(){
+	var canvas = document.getElementById('canvas');
+	var context = canvas.getContext('2d');
+	var img = new Image();
+    img.src = localStorage.getItem("canvas");
+    img.onload = function() {
+    	context.drawImage(img, 0, 0);        
+    }
+}
+</script>
+<section id="canvasbox">
+    <canvas id="canvas" width="800" height="1200"  style=" background-color:pink;">
+      Your browser doesn't support the canvas element
+    </canvas>
+ </section>
+</body>
+</html>

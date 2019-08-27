@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+ body{text-align: center;}
+</style>
+<body>
+<h1>구구단</h1>
+<button onclick = "gd(1)">1단</button>
+<button onclick = "gd(2)">2단</button>
+<button onclick = "gd(3)">3단</button>
+<button onclick = "gd(4)">4단</button>
+<button onclick = "gd(5)">5단</button>
+<button onclick = "gd(6)">6단</button>
+<button onclick = "gd(7)">7단</button>
+<button onclick = "gd(8)">8단</button>
+<button onclick = "gd(9)">9단</button>
+<output></output>
+<script>
+var target = document.getElementsByTagName("output")[0];
+function gd(e){
+	for(var i=1;i<10;i++){
+target.innerHTML += "<h2>"+i+"x"+e+"="+i*e+"</h2>"; 
+	}		
+}
+
+</script>
+</body>
+</html>

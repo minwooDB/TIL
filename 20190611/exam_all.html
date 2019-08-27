@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<body>
+<style>
+aside{text-align:center;}
+header.jbGrad01{
+background-image:linear-gradient(to bottom, lightpink, lightgreen);
+text-align:center;
+color:purple;
+height:110px;
+padding-top:8px;
+text-shadow:2px 2px 2px white;
+}
+hl{font-size:3em;
+}
+article{
+padding:30px;
+border:2px solid magenta;
+border-radius: 20px;
+}
+
+table, th,td {border:1px solid #2CEE15;
+ 			   border-collapse : collapse;}
+ 			th{
+ 			background-color:#2CEE15;}
+
+a.jbGrad01:hover{font-weight:bold;}
+
+img:hover{opacity:0.5;
+}
+FOOTER{text-align:center;
+	   FONT-SIZE:150%;
+	   PADDING:50PX;
+}
+</style>
+<body>
+<header class="jbGrad01">
+<h1>HTML5학습</h1>
+<script>
+window.onload = function(){
+	var request = new XMLHttpRequest();
+	request.onreadystatechange = function(){
+		if(request.readyState == 4 && request.status ==200){
+				var str = request.responseText;// jsp에서 정보를 가져오는 역할
+				var jsObj = JSON.parse(str);
+				var output = "";
+					output += "<img src= http://70.12.113.167:8000'"+jsObj.img+"'>";				
+					document.body.innerHTML += output;
+			}
+		}
+	request.open("GET",'http://70.12.113.167:8000/weather.jsp',true);
+	request.send();
+}
+</script>
+<a class="jbGrad01" href="http://www.w3.org/">w3c</a>
+<a class="jbGrad01" href="http://www.w3.org/">w3schools</a>
+<a class="jbGrad01" href="http://www.w3.org/">jQuery</a>
+</header>
+<br>
+<section>
+<article>
+<h1 style="color:purple">나의 소개</h1>
+<ul>
+<li>
+이름: 이민우
+</li>
+<li>
+별명: 
+</li>
+<li>
+관심기술:HTML
+</li>
+<li>
+취미:운동
+</li>
+</ul>
+</article>
+<br>
+<article>
+<h1 style="color:#2CEE15">올해 재미있게 읽은 책</h1>
+<table>
+ <tr><th>제목</th><th>장르</th></tr>
+ <tr><td>나미야 잡화점의 기적</td><td>추리</td></tr>
+ <tr><td>구해줘</td><td>판타지</td></tr>
+ <tr><td>이미테이션게임</td><td>추리</td></tr>
+</table>
+</article>
+<br>
+<article >
+<h1 style="color:#0C4FFB">자랑하고 싶은 <a style="color:purple">우리동네</a>의 아름다운 곳</h1>
+
+송도 센트럴파크(Songdo Central Park)는 대한민국 인천광역시 연수구 송도국제도시 국제업무지구에 위치한 대형 공원이며,<br>
+ 센트럴공원으로도 불린다. 인천 도시철도 1호선 센트럴파크역 인근에 자리잡고 있으며 송도국제도시의 일부분인 송도 국제업무지구의 중앙에 위치해 있다.<br> 
+ 규모는 411,324m², 약 14만평이다. 이는 축구장 면적 56배 크기이며 여의도 공원의 2배 규모다.<br>
+ <figure>
+ <img src="http://70.12.113.167:8000/edu/htmlexam/images/송센.jpg" alt="우리동네">
+ <figcaption>센트럴파크내 풍경</figcaption>
+ </figure>
+</article>
+<br>
+</section>
+<aside>
+<video src="관련영상.mp4" id="media" width="400" controls>
+  </video>
+</aside>
+<script>
+    var canvas, drop;
+    function initiate(){
+	  var images=document.querySelectorAll('#picturesbox > img');
+	  for(var i=0; i<images.length; i++){
+	    images[i].addEventListener('dragstart', dragged, false);
+	    images[i].addEventListener('dragend', ending, false);
+	  }
+
+	  drop=document.getElementById('canvas');
+	  canvas=drop.getContext('2d');
+
+	  drop.addEventListener('dragover', function(e){ e.preventDefault(); }, false);
+	  drop.addEventListener('drop', dropped, false);
+	}
+	function ending(e){
+	  elem=e.target;
+	  //elem.style.visibility='hidden';
+	  //elem.style.display='none';
+	  //elem.parentNode.removeChild(elem);
+	}
+	function dragged(e){
+	  var elem=e.target;
+	  e.dataTransfer.setData('aa', elem.getAttribute('id'));
+	  e.dataTransfer.setDragImage(e.target, 0, 0);
+	}
+	function dropped(e){
+	  e.preventDefault();
+	  var id=e.dataTransfer.getData('aa');
+	  var elem=document.getElementById(id);
+
+	  var posx=e.pageX-drop.offsetLeft;
+	  var posy=e.pageY-drop.offsetTop;
+
+	  canvas.drawImage(elem,posx,posy, 70, 70);
+	 
+	}
+	window.addEventListener('load', initiate, false);
+  </script>
+ <script>
+function  save() {	
+	var canvas = document.getElementById('canvas');
+	alert(canvas.toDataURL()); 
+    localStorage.setItem("canvas", canvas.toDataURL());    
+}
+function initialize()
+{
+    var canvas = document.getElementById('#picturesbox > img');
+    for(var i=0; i<images.length; i++){
+	    images[i].addEventListener('dragstart', dragged, false);
+	    images[i].addEventListener('dragend', ending, false);
+	  }
+function read(){
+	var canvas = document.getElementById('canvas');
+	var context = canvas.getContext('2d');
+	var img = new Image();
+    img.src = localStorage.getItem("canvas");
+    img.onload = function() {
+    	context.drawImage(img, 0, 0);        
+    }
+}
+function backgroundColor() {
+	canvas.fillStyle = document.getElementById("bgcolor").value;
+	canvas.fillRect(0, 0, 400, 200);
+}
+function borderColor() {
+	canvas.strokeStyle = document.getElementById("stcolor").value;
+	canvas.lineWidth = 15;
+	canvas.strokeRect(0, 0, 400, 200);
+</script> 
+
+<button onclick = save();>저장하기</button>
+<button onclick = initialize();>지우기</button>
+<button onclick = read();>읽어오기</button>
+<br>
+배경컬러설정: <input TYPE="color" id="bgcolor" onchange="backgroundColor()">
+테두리 컬러설정:<input TYPE="color" id="stcolor" onchange="borderColor()">
+입력메세지설정: <input TYPE="color" id="txcolor" onchange="clearRect()"><br>
+입력 메시지 : <input id="msg" type="text" size="70"><br>
+<link rel="stylesheet" href="dragdrop.css">
+
+
+  <section id="dropbox">
+    <canvas id="canvas" width="400" height="200"></canvas>
+  </section>
+  <section id="picturesbox" width="400" height="200">
+    <img id="image1" width= 100 src="g1.png">
+    <img id="image2"  width=100 src="g2.png">
+    <img id="image3" width=100 src="g3.png">
+    <img id="image4" width= 100  src ="g8.png">
+    <img id="image5" width= 100 src="g5.png">
+    <img id="image6" width=100 src="g6.png">
+    <img id="image7" width= 100 src="g7.png">
+  </section>
+<footer style="background-color:grey">
+이 문서는 이민우에 의해 html 기술을 사용하여 2019년 5월 27일 작성되었습니다.
+</footer>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>연습문제6</h1>
+	<script>
+		function calc() {
+			
+			if (arguments.length == 0)
+				return 0;
+			else {
+				var sum = 0;
+				for (var i = 0; i < arguments.length; i++) {
+
+					if (isNaN(arguments[i])) {
+						sum = "숫자만 전달하세요.";
+						break;
+					} 
+					else
+						sum += Number(arguments[i]);
+				}return sum;
+			}
+		}
+		document.write("<h3>" + calc() + "</h3>");
+		document.write("<h3>" + calc(10, 20, '30') + "</h3>");
+		document.write("<h3>" + calc(10, '가나다', 20) + "</h3>");
+		document.write("<h3>" + calc(1, 2, 3, 4, 5) + "</h3>");
+	</script>
+</body>
+</html>

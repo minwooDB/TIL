@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-1.7.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+   integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+   crossorigin=""></script>
+</head>
+<body>
+<button onclick = "position(1)">우리집</button>
+<button onclick = "position(2)">청기와소곱창돌구이</button>
+<hr>
+ <div id="mapid" style="width: 600px; height: 400px;"></div>
+<script>
+var mymap;
+    function position(num){
+    	var  content;
+    	 if(num == 1){
+    			lat =  "37.457066"
+    			lng = "126.733327"
+    			content="우리집"
+    		 }
+    		else if(num==2){
+    			lat =  "37.454116"
+        		lng = "126.732956"
+        			content="곱창집"
+    		 }
+    //멀티캠퍼스 위도, 경도 : 37.5017, 127.0409
+    if(mymap)
+    	mymap.remove();
+	mymap = L.map('mapid').setView([lat, lng], 16);
+
+	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		maxZoom: 18,
+		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery <a href="https://www.mapbox.com/">Mapbox</a>',
+		id: 'mapbox.streets'
+	}).addTo(mymap);
+
+	var myIcon = L.icon({
+	    iconUrl: '/d3edu/images/duke.png',
+	    iconSize: [30, 50]
+	});
+	L.marker([lat, lng], {icon: myIcon}).addTo(mymap).bindTooltip(content, {direction: 'right', offset :[20,3]})
+    }
+	</script>		 
+</body>
+</html>
