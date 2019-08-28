@@ -26,7 +26,7 @@
 
    [커밋 낱말 사전](https://blog.ull.im/engineering/2019/03/10/logs-on-git.html)
 
-   # 	Git 
+   # Git 
 
    ## 기본명령어
 
